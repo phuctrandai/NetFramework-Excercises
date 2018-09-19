@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyHang.View;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,19 @@ namespace QuanLyHang
         public form_DangNhap()
         {
             InitializeComponent();
+        }
+
+        private void button_Thoat_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button_DangNhap_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            form_ManHinhChinh f = new form_ManHinhChinh();
+            f.ShowDialog();
+            this.Show();
         }
     }
 }

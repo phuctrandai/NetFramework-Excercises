@@ -87,6 +87,7 @@
             this.button_DangNhap.TabIndex = 2;
             this.button_DangNhap.Text = "Đăng nhập";
             this.button_DangNhap.UseVisualStyleBackColor = true;
+            this.button_DangNhap.Click += new System.EventHandler(this.button_DangNhap_Click);
             // 
             // button_Thoat
             // 
@@ -96,11 +97,14 @@
             this.button_Thoat.TabIndex = 3;
             this.button_Thoat.Text = "Thoát";
             this.button_Thoat.UseVisualStyleBackColor = true;
+            this.button_Thoat.Click += new System.EventHandler(this.button_Thoat_Click);
             // 
             // form_DangNhap
             // 
+            this.AcceptButton = this.button_DangNhap;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button_Thoat;
             this.ClientSize = new System.Drawing.Size(412, 253);
             this.Controls.Add(this.button_Thoat);
             this.Controls.Add(this.button_DangNhap);
