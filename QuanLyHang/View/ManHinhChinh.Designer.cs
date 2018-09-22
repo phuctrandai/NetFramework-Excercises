@@ -68,6 +68,8 @@
             this.dataGridView_DSHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_DSHang.Location = new System.Drawing.Point(12, 160);
             this.dataGridView_DSHang.Name = "dataGridView_DSHang";
+            this.dataGridView_DSHang.ReadOnly = true;
+            this.dataGridView_DSHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_DSHang.Size = new System.Drawing.Size(529, 226);
             this.dataGridView_DSHang.TabIndex = 1;
             // 
@@ -210,15 +212,17 @@
             // 
             // comboBox_ChiNhanh
             // 
-            this.comboBox_ChiNhanh.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_ChiNhanh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox_ChiNhanh.FormattingEnabled = true;
             this.comboBox_ChiNhanh.Location = new System.Drawing.Point(420, 38);
             this.comboBox_ChiNhanh.Name = "comboBox_ChiNhanh";
             this.comboBox_ChiNhanh.Size = new System.Drawing.Size(121, 21);
             this.comboBox_ChiNhanh.TabIndex = 7;
+            this.comboBox_ChiNhanh.SelectedIndexChanged += new System.EventHandler(this.comboBox_ChiNhanh_SelectedIndexChanged);
             // 
             // button_DangXuat
             // 
+            this.button_DangXuat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_DangXuat.Location = new System.Drawing.Point(466, 392);
             this.button_DangXuat.Name = "button_DangXuat";
             this.button_DangXuat.Size = new System.Drawing.Size(75, 23);
@@ -248,6 +252,7 @@
             this.Controls.Add(this.dataGridView_DSHang);
             this.Controls.Add(this.label1);
             this.Name = "form_ManHinhChinh";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý hàng";
             this.Load += new System.EventHandler(this.form_ManHinhChinh_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DSHang)).EndInit();

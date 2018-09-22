@@ -1,21 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Collections.Generic;
 using QuanLyHang.Model;
 
 namespace QuanLyHang.Bo
 {
-    class HangBo
+    public class HangBo
     {
-        private List<HangBean> list;
-        
-        public HangBo()
+        private static HangBo instance;
+
+        public static HangBo getInstance()
         {
-            list = new List<HangBean>();
+            if (instance == null) instance = new HangBo();
+            return instance;
         }
+
+        private List<HangBean> list;
+
+        private HangBo() => list = new List<HangBean>();
 
         public List<HangBean> TaoDanhSach()
         {
@@ -55,6 +55,54 @@ namespace QuanLyHang.Bo
                     result.Add(item);
             }
             return result;
+        }
+
+        public int LayChiSo(string maHang)
+        {
+            return list.FindIndex((h) => { return h.MaHang.ToLower().Trim().Equals(maHang.ToLower().Trim()); });
+        }
+
+        public bool Them(string maHang, string tenHang, int giaBan, int soLuong, string maChiNhanh)
+        {
+            if(LayChiSo(maHang) < 0)
+            {
+                list.Add(new HangBean(maHang, tenHang, giaBan, soLuong, maChiNhanh));
+                return true;
+            }
+            return false;
+        }
+
+        public bool Xoa(string maHang)
+        {
+            int index = LayChiSo(maHang);
+            if(index >= 0)
+            {
+                list.RemoveAt(index);
+                return true;
+            }
+            return false;
+        }
+
+        public bool Sua(string maHang, string newTenHang = "", int newGiaBan = 0, int newSoLuong = 0)
+        {
+            int index = LayChiSo(maHang);
+            if (index >= 0)
+            {
+                if (newTenHang != null)
+                {
+                    list[index].TenHang = newTenHang;
+                }
+                if(newGiaBan > 0)
+                {
+                    list[index].GiaBan = newGiaBan;
+                }
+                if(newSoLuong > 0)
+                {
+                    list[index].SoLuongHienCo = newSoLuong;
+                }
+                return true;
+            }
+            return false;
         }
     }
 }

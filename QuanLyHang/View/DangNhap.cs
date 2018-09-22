@@ -18,6 +18,8 @@ namespace QuanLyHang
             InitializeComponent();
         }
 
+        public static string tenDangNhap = "";
+
         private void button_Thoat_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -25,6 +27,8 @@ namespace QuanLyHang
 
         private void button_DangNhap_Click(object sender, EventArgs e)
         {
+            tenDangNhap = textBox_TenTaiKhoan.Text;
+
             this.Hide();
             form_ManHinhChinh f = new form_ManHinhChinh();
             f.ShowDialog();

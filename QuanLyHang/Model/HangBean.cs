@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QuanLyHang.Model
 {
-    class HangBean
+    public class HangBean
     {
         string maHang;
         string tenHang;
