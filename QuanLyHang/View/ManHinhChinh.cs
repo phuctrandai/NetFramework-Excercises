@@ -3,6 +3,7 @@ using QuanLyHang.Model;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace QuanLyHang.View
 {
@@ -57,7 +58,13 @@ namespace QuanLyHang.View
 
         private void button_Tim_Click(object sender, EventArgs e)
         {
-
+            bindingSource.DataSource = TimHangTheoTen();
+        }
+        private List<HangBean> TimHangTheoTen()
+        {
+            string key = Interaction.InputBox("Tên hàng:", "Tìm mặt hàng.");
+            List<HangBean> result = HangBo.getInstance().TimTheoTen(key);
+            return result;
         }
 
         private void button_Sua_Click(object sender, EventArgs e)

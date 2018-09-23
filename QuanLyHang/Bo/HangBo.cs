@@ -57,6 +57,17 @@ namespace QuanLyHang.Bo
             return result;
         }
 
+        public List<HangBean> TimTheoTen(string key)
+        {
+            List<HangBean> result = new List<HangBean>();
+            foreach (HangBean item in list)
+            {
+                if (item.TenHang.ToLower().Trim().Equals(key.ToLower().Trim()))
+                    result.Add(item);
+            }
+            return result;
+        }
+
         public int LayChiSo(string maHang)
         {
             return list.FindIndex((h) => { return h.MaHang.ToLower().Trim().Equals(maHang.ToLower().Trim()); });
