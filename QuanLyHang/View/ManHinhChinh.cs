@@ -13,17 +13,10 @@ namespace QuanLyHang.View
         {
             InitializeComponent();
 
-            chiNhanhBo = new ChiNhanhBo();
-
-            list = HangBo.getInstance().TaoDanhSach();
-
             bindingSource = new BindingSource();
-            bindingSource.DataSource = list;
+            bindingSource.DataSource = HangBo.getInstance().TaoDanhSach(); ;
         }
 
-        public static List<HangBean> list = null;
-
-        private ChiNhanhBo chiNhanhBo;
         public static BindingSource bindingSource = null;
 
         private void button_Them_Click(object sender, EventArgs e)
@@ -128,7 +121,7 @@ namespace QuanLyHang.View
             dataGridView_DSHang.DataSource = bindingSource;
             Binding();
 
-            comboBox_ChiNhanh.DataSource = chiNhanhBo.TaoDanhSach();
+            comboBox_ChiNhanh.DataSource = ChiNhanhBo.getInstance().TaoDanhSach();
             comboBox_ChiNhanh.DisplayMember = "TenChiNhanh";
             comboBox_ChiNhanh.ValueMember = "MaChiNhanh";
             isLoaded = true;

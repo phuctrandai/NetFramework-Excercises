@@ -75,6 +75,11 @@
             // 
             // button_Them
             // 
+            this.button_Them.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Them.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_Them.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.button_Them.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Them.Location = new System.Drawing.Point(5, 19);
             this.button_Them.Name = "button_Them";
             this.button_Them.Size = new System.Drawing.Size(75, 41);
@@ -85,6 +90,11 @@
             // 
             // button_Xoa
             // 
+            this.button_Xoa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Xoa.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_Xoa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.button_Xoa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Xoa.Location = new System.Drawing.Point(86, 19);
             this.button_Xoa.Name = "button_Xoa";
             this.button_Xoa.Size = new System.Drawing.Size(75, 41);
@@ -95,6 +105,11 @@
             // 
             // button_Sua
             // 
+            this.button_Sua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Sua.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_Sua.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Yellow;
+            this.button_Sua.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Sua.Location = new System.Drawing.Point(167, 19);
             this.button_Sua.Name = "button_Sua";
             this.button_Sua.Size = new System.Drawing.Size(75, 41);
@@ -105,6 +120,11 @@
             // 
             // button_Tim
             // 
+            this.button_Tim.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_Tim.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_Tim.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
+            this.button_Tim.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_Tim.Location = new System.Drawing.Point(248, 19);
             this.button_Tim.Name = "button_Tim";
             this.button_Tim.Size = new System.Drawing.Size(75, 41);
@@ -115,6 +135,11 @@
             // 
             // button_In
             // 
+            this.button_In.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button_In.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button_In.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.button_In.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_In.Location = new System.Drawing.Point(329, 19);
             this.button_In.Name = "button_In";
             this.button_In.Size = new System.Drawing.Size(75, 41);
@@ -125,6 +150,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.button_Xoa);
             this.groupBox1.Controls.Add(this.button_In);
             this.groupBox1.Controls.Add(this.button_Them);
@@ -171,6 +198,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(211, 15);
             this.label4.Name = "label4";
@@ -180,6 +208,7 @@
             // 
             // textBox_GiaBan
             // 
+            this.textBox_GiaBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_GiaBan.Location = new System.Drawing.Point(266, 12);
             this.textBox_GiaBan.Name = "textBox_GiaBan";
             this.textBox_GiaBan.Size = new System.Drawing.Size(142, 20);
@@ -187,6 +216,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(211, 41);
             this.label5.Name = "label5";
@@ -196,6 +226,7 @@
             // 
             // textBox_SoLuong
             // 
+            this.textBox_SoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_SoLuong.Location = new System.Drawing.Point(266, 38);
             this.textBox_SoLuong.Name = "textBox_SoLuong";
             this.textBox_SoLuong.Size = new System.Drawing.Size(142, 20);
@@ -203,6 +234,7 @@
             // 
             // label6
             // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(420, 15);
             this.label6.Name = "label6";
@@ -212,6 +244,7 @@
             // 
             // comboBox_ChiNhanh
             // 
+            this.comboBox_ChiNhanh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox_ChiNhanh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.comboBox_ChiNhanh.FormattingEnabled = true;
             this.comboBox_ChiNhanh.Location = new System.Drawing.Point(420, 38);
@@ -222,6 +255,7 @@
             // 
             // button_DangXuat
             // 
+            this.button_DangXuat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_DangXuat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_DangXuat.Location = new System.Drawing.Point(466, 392);
             this.button_DangXuat.Name = "button_DangXuat";
@@ -251,6 +285,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView_DSHang);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "form_ManHinhChinh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý hàng";

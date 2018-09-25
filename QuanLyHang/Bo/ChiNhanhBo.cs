@@ -10,12 +10,13 @@ namespace QuanLyHang.Bo
 {
     class ChiNhanhBo
     {
+        private static ChiNhanhBo instance;
+
+        public static ChiNhanhBo getInstance() { if (instance == null) instance = new ChiNhanhBo(); return instance; }
+
         private List<ChiNhanhBean> list;
 
-        public ChiNhanhBo()
-        {
-            list = new List<ChiNhanhBean>();
-        }
+        private ChiNhanhBo() => list = new List<ChiNhanhBean>();
 
         public List<ChiNhanhBean> TaoDanhSach()
         {

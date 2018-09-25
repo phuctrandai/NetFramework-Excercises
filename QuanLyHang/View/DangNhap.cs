@@ -28,11 +28,25 @@ namespace QuanLyHang
         private void button_DangNhap_Click(object sender, EventArgs e)
         {
             tenDangNhap = textBox_TenTaiKhoan.Text;
+            string matKhau = textBox_MatKhau.Text;
 
-            this.Hide();
-            form_ManHinhChinh f = new form_ManHinhChinh();
-            f.ShowDialog();
-            this.Show();
+            if (DangNhap(tenDangNhap, matKhau))
+            {
+                this.Hide();
+                new form_ManHinhChinh().ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Đăng nhập thất bại!");
+            }
+        }
+
+        private bool DangNhap(string userName, string password)
+        {
+            if (userName.Equals("admin") && password.Equals("123"))
+                return true;
+            return false;
         }
     }
 }

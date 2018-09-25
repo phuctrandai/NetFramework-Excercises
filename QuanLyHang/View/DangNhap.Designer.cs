@@ -91,6 +91,7 @@
             // 
             // button_Thoat
             // 
+            this.button_Thoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button_Thoat.Location = new System.Drawing.Point(287, 176);
             this.button_Thoat.Name = "button_Thoat";
             this.button_Thoat.Size = new System.Drawing.Size(75, 43);
@@ -106,6 +107,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button_Thoat;
             this.ClientSize = new System.Drawing.Size(412, 253);
+            this.ControlBox = false;
             this.Controls.Add(this.button_Thoat);
             this.Controls.Add(this.button_DangNhap);
             this.Controls.Add(this.textBox_MatKhau);
@@ -114,6 +116,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "form_DangNhap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Đăng nhập";
             this.ResumeLayout(false);
             this.PerformLayout();
