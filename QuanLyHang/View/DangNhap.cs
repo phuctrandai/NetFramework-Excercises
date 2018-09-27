@@ -1,12 +1,5 @@
 ﻿using QuanLyHang.View;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyHang
@@ -33,8 +26,7 @@ namespace QuanLyHang
             if (DangNhap(tenDangNhap, matKhau))
             {
                 this.Hide();
-                new form_ManHinhChinh().ShowDialog();
-                this.Show();
+                new form_KetNoiDatabase().Show();
             }
             else
             {

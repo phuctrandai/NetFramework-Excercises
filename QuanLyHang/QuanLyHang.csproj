@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bo\ChiNhanhBo.cs" />
+    <Compile Include="Model\Dao\ConnectDataBase.cs" />
     <Compile Include="Bo\HangBo.cs" />
     <Compile Include="View\DangNhap.cs">
       <SubType>Form</SubType>
@@ -99,6 +100,12 @@
     </Compile>
     <Compile Include="View\InBaoCao.Designer.cs">
       <DependentUpon>InBaoCao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\KetNoiDataBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\KetNoiDataBase.Designer.cs">
+      <DependentUpon>KetNoiDataBase.cs</DependentUpon>
     </Compile>
     <Compile Include="View\ManHinhChinh.cs">
       <SubType>Form</SubType>
@@ -121,6 +128,9 @@
     </Compile>
     <EmbeddedResource Include="View\InBaoCao.resx">
       <DependentUpon>InBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\KetNoiDataBase.resx">
+      <DependentUpon>KetNoiDataBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\ManHinhChinh.resx">
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
