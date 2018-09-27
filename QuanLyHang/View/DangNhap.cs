@@ -26,7 +26,8 @@ namespace QuanLyHang
             if (DangNhap(tenDangNhap, matKhau))
             {
                 this.Hide();
-                new form_KetNoiDatabase().Show();
+                new form_KetNoiDatabase().ShowDialog();
+                this.Show();
             }
             else
             {

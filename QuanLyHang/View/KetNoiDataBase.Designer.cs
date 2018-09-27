@@ -41,18 +41,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox_Authentication = new System.Windows.Forms.ComboBox();
             this.panel_ConnectToSqlServer = new System.Windows.Forms.Panel();
+            this.panel_SQLServerAuthentication = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.comboBox_DataSource = new System.Windows.Forms.ComboBox();
             this.panel_ConnectToExcel = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox_ExcelFile = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.textBox_ExcelFile = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.panel_SQLServerAuthentication = new System.Windows.Forms.Panel();
             this.panel_ConnectToSqlServer.SuspendLayout();
-            this.panel_ConnectToExcel.SuspendLayout();
             this.panel_SQLServerAuthentication.SuspendLayout();
+            this.panel_ConnectToExcel.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox_ServerName
@@ -121,7 +121,7 @@
             this.button_Connect.Location = new System.Drawing.Point(146, 313);
             this.button_Connect.Name = "button_Connect";
             this.button_Connect.Size = new System.Drawing.Size(75, 32);
-            this.button_Connect.TabIndex = 7;
+            this.button_Connect.TabIndex = 3;
             this.button_Connect.Text = "Connect";
             this.button_Connect.UseVisualStyleBackColor = true;
             this.button_Connect.Click += new System.EventHandler(this.button_Connect_Click);
@@ -131,14 +131,14 @@
             this.button_Exit.Location = new System.Drawing.Point(247, 313);
             this.button_Exit.Name = "button_Exit";
             this.button_Exit.Size = new System.Drawing.Size(75, 32);
-            this.button_Exit.TabIndex = 8;
+            this.button_Exit.TabIndex = 4;
             this.button_Exit.Text = "Exit";
             this.button_Exit.UseVisualStyleBackColor = true;
             this.button_Exit.Click += new System.EventHandler(this.button_Exit_Click);
             // 
             // comboBox_Databases
             // 
-            this.comboBox_Databases.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox_Databases.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Databases.FormattingEnabled = true;
             this.comboBox_Databases.Location = new System.Drawing.Point(133, 60);
             this.comboBox_Databases.Name = "comboBox_Databases";
@@ -158,7 +158,6 @@
             // comboBox_Authentication
             // 
             this.comboBox_Authentication.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_Authentication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_Authentication.FormattingEnabled = true;
             this.comboBox_Authentication.Items.AddRange(new object[] {
             "Windows Authentication",
@@ -186,7 +185,28 @@
             this.panel_ConnectToSqlServer.Location = new System.Drawing.Point(12, 131);
             this.panel_ConnectToSqlServer.Name = "panel_ConnectToSqlServer";
             this.panel_ConnectToSqlServer.Size = new System.Drawing.Size(365, 176);
-            this.panel_ConnectToSqlServer.TabIndex = 10;
+            this.panel_ConnectToSqlServer.TabIndex = 2;
+            // 
+            // panel_SQLServerAuthentication
+            // 
+            this.panel_SQLServerAuthentication.Controls.Add(this.textBox_UserName);
+            this.panel_SQLServerAuthentication.Controls.Add(this.textBox_Password);
+            this.panel_SQLServerAuthentication.Controls.Add(this.label3);
+            this.panel_SQLServerAuthentication.Controls.Add(this.label4);
+            this.panel_SQLServerAuthentication.Enabled = false;
+            this.panel_SQLServerAuthentication.Location = new System.Drawing.Point(3, 114);
+            this.panel_SQLServerAuthentication.Name = "panel_SQLServerAuthentication";
+            this.panel_SQLServerAuthentication.Size = new System.Drawing.Size(357, 54);
+            this.panel_SQLServerAuthentication.TabIndex = 11;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(110, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(166, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Connect to Microsoft SQL Server:";
             // 
             // label6
             // 
@@ -200,7 +220,6 @@
             // comboBox_DataSource
             // 
             this.comboBox_DataSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox_DataSource.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox_DataSource.FormattingEnabled = true;
             this.comboBox_DataSource.Items.AddRange(new object[] {
             "Microsoft SQL Server",
@@ -221,23 +240,7 @@
             this.panel_ConnectToExcel.Location = new System.Drawing.Point(12, 72);
             this.panel_ConnectToExcel.Name = "panel_ConnectToExcel";
             this.panel_ConnectToExcel.Size = new System.Drawing.Size(365, 53);
-            this.panel_ConnectToExcel.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(72, 27);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Excel File:";
-            // 
-            // textBox_ExcelFile
-            // 
-            this.textBox_ExcelFile.Location = new System.Drawing.Point(133, 24);
-            this.textBox_ExcelFile.Name = "textBox_ExcelFile";
-            this.textBox_ExcelFile.Size = new System.Drawing.Size(176, 20);
-            this.textBox_ExcelFile.TabIndex = 1;
+            this.panel_ConnectToExcel.TabIndex = 1;
             // 
             // label8
             // 
@@ -248,14 +251,21 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "Connect to Excel:";
             // 
-            // label9
+            // textBox_ExcelFile
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(110, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(166, 13);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Connect to Microsoft SQL Server:";
+            this.textBox_ExcelFile.Location = new System.Drawing.Point(133, 24);
+            this.textBox_ExcelFile.Name = "textBox_ExcelFile";
+            this.textBox_ExcelFile.Size = new System.Drawing.Size(176, 20);
+            this.textBox_ExcelFile.TabIndex = 1;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(72, 27);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Excel File:";
             // 
             // label10
             // 
@@ -265,18 +275,6 @@
             this.label10.Size = new System.Drawing.Size(108, 13);
             this.label10.TabIndex = 14;
             this.label10.Text = "Choose your connect";
-            // 
-            // panel_SQLServerAuthentication
-            // 
-            this.panel_SQLServerAuthentication.Controls.Add(this.textBox_UserName);
-            this.panel_SQLServerAuthentication.Controls.Add(this.textBox_Password);
-            this.panel_SQLServerAuthentication.Controls.Add(this.label3);
-            this.panel_SQLServerAuthentication.Controls.Add(this.label4);
-            this.panel_SQLServerAuthentication.Enabled = false;
-            this.panel_SQLServerAuthentication.Location = new System.Drawing.Point(3, 114);
-            this.panel_SQLServerAuthentication.Name = "panel_SQLServerAuthentication";
-            this.panel_SQLServerAuthentication.Size = new System.Drawing.Size(357, 54);
-            this.panel_SQLServerAuthentication.TabIndex = 11;
             // 
             // form_KetNoiDatabase
             // 
@@ -295,10 +293,10 @@
             this.Load += new System.EventHandler(this.KetNoiDataBase_Load);
             this.panel_ConnectToSqlServer.ResumeLayout(false);
             this.panel_ConnectToSqlServer.PerformLayout();
-            this.panel_ConnectToExcel.ResumeLayout(false);
-            this.panel_ConnectToExcel.PerformLayout();
             this.panel_SQLServerAuthentication.ResumeLayout(false);
             this.panel_SQLServerAuthentication.PerformLayout();
+            this.panel_ConnectToExcel.ResumeLayout(false);
+            this.panel_ConnectToExcel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

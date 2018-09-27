@@ -43,13 +43,15 @@ namespace QuanLyHang.View
                 {
                     ConnectDataBase.getInstance().Connect(textBox_ServerName.Text, comboBox_Databases.Text, textBox_UserName.Text, textBox_Password.Text);
                 }
-                MessageBox.Show(ConnectDataBase.getInstance().sqlConnection.State.ToString());
+                this.Hide();
+                new form_QuanLySach().ShowDialog();
+                this.Close();
             }
         }
 
         private void button_Exit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void comboBox_DataSource_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,7 +88,7 @@ namespace QuanLyHang.View
         private void GetDatabases()
         {
             ConnectDataBase.getInstance().Connect(textBox_ServerName.Text, "master");
-            SqlCommand sqlCommand = new SqlCommand("Select * from sys.databases", ConnectDataBase.getInstance().sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("Select * from sys.databases", ConnectDataBase.getInstance().SqlConnection);
             SqlDataReader dataReader = sqlCommand.ExecuteReader();
             comboBox_Databases.Items.Clear();
             while (dataReader.Read())

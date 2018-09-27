@@ -83,8 +83,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bo\ChiNhanhBo.cs" />
+    <Compile Include="Bo\SachBo.cs" />
     <Compile Include="Model\Dao\ConnectDataBase.cs" />
     <Compile Include="Bo\HangBo.cs" />
+    <Compile Include="Model\Dao\SachDao.cs" />
+    <Compile Include="Model\SachBean.cs" />
     <Compile Include="View\DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +116,12 @@
     <Compile Include="View\ManHinhChinh.Designer.cs">
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\QuanLySach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuanLySach.Designer.cs">
+      <DependentUpon>QuanLySach.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Report\BaoCao1.rdlc" />
     <EmbeddedResource Include="View\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
@@ -134,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\ManHinhChinh.resx">
       <DependentUpon>ManHinhChinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\QuanLySach.resx">
+      <DependentUpon>QuanLySach.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\QuanLyHang.Model.HangBean.datasource" />
