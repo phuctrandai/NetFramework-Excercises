@@ -21,5 +21,10 @@ namespace QuanLyHang.View
 
             dataGridView_Sach.DataSource = SachBo.getInstance().GetSach();
         }
+
+        private void button_DangXuat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

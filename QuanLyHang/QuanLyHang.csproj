@@ -82,10 +82,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bo\ChiNhanhBo.cs" />
     <Compile Include="Bo\SachBo.cs" />
     <Compile Include="Model\Dao\ConnectDataBase.cs" />
-    <Compile Include="Bo\HangBo.cs" />
     <Compile Include="Model\Dao\SachDao.cs" />
     <Compile Include="Model\SachBean.cs" />
     <Compile Include="View\DangNhap.cs">
@@ -94,8 +92,6 @@
     <Compile Include="View\DangNhap.Designer.cs">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\ChiNhanhBean.cs" />
-    <Compile Include="Model\HangBean.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\InBaoCao.cs">
@@ -109,12 +105,6 @@
     </Compile>
     <Compile Include="View\KetNoiDataBase.Designer.cs">
       <DependentUpon>KetNoiDataBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\ManHinhChinh.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\ManHinhChinh.Designer.cs">
-      <DependentUpon>ManHinhChinh.cs</DependentUpon>
     </Compile>
     <Compile Include="View\QuanLySach.cs">
       <SubType>Form</SubType>
@@ -141,13 +131,9 @@
     <EmbeddedResource Include="View\KetNoiDataBase.resx">
       <DependentUpon>KetNoiDataBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\ManHinhChinh.resx">
-      <DependentUpon>ManHinhChinh.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\QuanLySach.resx">
       <DependentUpon>QuanLySach.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\DataSources\QuanLyHang.Model.HangBean.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -158,9 +144,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

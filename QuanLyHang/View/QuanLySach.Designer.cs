@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox_ThaoTac = new System.Windows.Forms.GroupBox();
-            this.button_Them = new System.Windows.Forms.Button();
-            this.button_Xoa = new System.Windows.Forms.Button();
-            this.button_Sua = new System.Windows.Forms.Button();
-            this.button_TimKiem = new System.Windows.Forms.Button();
-            this.button_In = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button_In = new System.Windows.Forms.Button();
+            this.button_TimKiem = new System.Windows.Forms.Button();
+            this.button_Sua = new System.Windows.Forms.Button();
+            this.button_Xoa = new System.Windows.Forms.Button();
+            this.button_Them = new System.Windows.Forms.Button();
             this.dataGridView_Sach = new System.Windows.Forms.DataGridView();
+            this.button_DangXuat = new System.Windows.Forms.Button();
             this.groupBox_ThaoTac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Sach)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox_ThaoTac
             // 
+            this.groupBox_ThaoTac.Controls.Add(this.button_DangXuat);
             this.groupBox_ThaoTac.Controls.Add(this.label1);
             this.groupBox_ThaoTac.Controls.Add(this.button_In);
             this.groupBox_ThaoTac.Controls.Add(this.button_TimKiem);
@@ -57,56 +59,6 @@
             this.groupBox_ThaoTac.TabStop = false;
             this.groupBox_ThaoTac.Text = "Thao tác";
             // 
-            // button_Them
-            // 
-            this.button_Them.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button_Them.Location = new System.Drawing.Point(3, 16);
-            this.button_Them.Name = "button_Them";
-            this.button_Them.Size = new System.Drawing.Size(75, 69);
-            this.button_Them.TabIndex = 0;
-            this.button_Them.Text = "Thêm sách";
-            this.button_Them.UseVisualStyleBackColor = true;
-            // 
-            // button_Xoa
-            // 
-            this.button_Xoa.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button_Xoa.Location = new System.Drawing.Point(78, 16);
-            this.button_Xoa.Name = "button_Xoa";
-            this.button_Xoa.Size = new System.Drawing.Size(75, 69);
-            this.button_Xoa.TabIndex = 1;
-            this.button_Xoa.Text = "Xóa sách";
-            this.button_Xoa.UseVisualStyleBackColor = true;
-            // 
-            // button_Sua
-            // 
-            this.button_Sua.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button_Sua.Location = new System.Drawing.Point(153, 16);
-            this.button_Sua.Name = "button_Sua";
-            this.button_Sua.Size = new System.Drawing.Size(75, 69);
-            this.button_Sua.TabIndex = 2;
-            this.button_Sua.Text = "Sửa thông tin sách";
-            this.button_Sua.UseVisualStyleBackColor = true;
-            // 
-            // button_TimKiem
-            // 
-            this.button_TimKiem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button_TimKiem.Location = new System.Drawing.Point(228, 16);
-            this.button_TimKiem.Name = "button_TimKiem";
-            this.button_TimKiem.Size = new System.Drawing.Size(75, 69);
-            this.button_TimKiem.TabIndex = 3;
-            this.button_TimKiem.Text = "Tìm kiếm sách";
-            this.button_TimKiem.UseVisualStyleBackColor = true;
-            // 
-            // button_In
-            // 
-            this.button_In.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button_In.Location = new System.Drawing.Point(303, 16);
-            this.button_In.Name = "button_In";
-            this.button_In.Size = new System.Drawing.Size(75, 69);
-            this.button_In.TabIndex = 4;
-            this.button_In.Text = "In báo cáo";
-            this.button_In.UseVisualStyleBackColor = true;
-            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -119,6 +71,56 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Quản Lý Sách";
             // 
+            // button_In
+            // 
+            this.button_In.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button_In.Location = new System.Drawing.Point(303, 16);
+            this.button_In.Name = "button_In";
+            this.button_In.Size = new System.Drawing.Size(75, 69);
+            this.button_In.TabIndex = 4;
+            this.button_In.Text = "In báo cáo";
+            this.button_In.UseVisualStyleBackColor = true;
+            // 
+            // button_TimKiem
+            // 
+            this.button_TimKiem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button_TimKiem.Location = new System.Drawing.Point(228, 16);
+            this.button_TimKiem.Name = "button_TimKiem";
+            this.button_TimKiem.Size = new System.Drawing.Size(75, 69);
+            this.button_TimKiem.TabIndex = 3;
+            this.button_TimKiem.Text = "Tìm kiếm sách";
+            this.button_TimKiem.UseVisualStyleBackColor = true;
+            // 
+            // button_Sua
+            // 
+            this.button_Sua.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button_Sua.Location = new System.Drawing.Point(153, 16);
+            this.button_Sua.Name = "button_Sua";
+            this.button_Sua.Size = new System.Drawing.Size(75, 69);
+            this.button_Sua.TabIndex = 2;
+            this.button_Sua.Text = "Sửa thông tin sách";
+            this.button_Sua.UseVisualStyleBackColor = true;
+            // 
+            // button_Xoa
+            // 
+            this.button_Xoa.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button_Xoa.Location = new System.Drawing.Point(78, 16);
+            this.button_Xoa.Name = "button_Xoa";
+            this.button_Xoa.Size = new System.Drawing.Size(75, 69);
+            this.button_Xoa.TabIndex = 1;
+            this.button_Xoa.Text = "Xóa sách";
+            this.button_Xoa.UseVisualStyleBackColor = true;
+            // 
+            // button_Them
+            // 
+            this.button_Them.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button_Them.Location = new System.Drawing.Point(3, 16);
+            this.button_Them.Name = "button_Them";
+            this.button_Them.Size = new System.Drawing.Size(75, 69);
+            this.button_Them.TabIndex = 0;
+            this.button_Them.Text = "Thêm sách";
+            this.button_Them.UseVisualStyleBackColor = true;
+            // 
             // dataGridView_Sach
             // 
             this.dataGridView_Sach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -127,6 +129,17 @@
             this.dataGridView_Sach.Name = "dataGridView_Sach";
             this.dataGridView_Sach.Size = new System.Drawing.Size(725, 362);
             this.dataGridView_Sach.TabIndex = 1;
+            // 
+            // button_DangXuat
+            // 
+            this.button_DangXuat.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button_DangXuat.Location = new System.Drawing.Point(679, 16);
+            this.button_DangXuat.Name = "button_DangXuat";
+            this.button_DangXuat.Size = new System.Drawing.Size(43, 69);
+            this.button_DangXuat.TabIndex = 6;
+            this.button_DangXuat.Text = "Đăng xuất";
+            this.button_DangXuat.UseVisualStyleBackColor = true;
+            this.button_DangXuat.Click += new System.EventHandler(this.button_DangXuat_Click);
             // 
             // form_QuanLySach
             // 
@@ -155,5 +168,6 @@
         private System.Windows.Forms.Button button_Xoa;
         private System.Windows.Forms.Button button_Them;
         private System.Windows.Forms.DataGridView dataGridView_Sach;
+        private System.Windows.Forms.Button button_DangXuat;
     }
 }

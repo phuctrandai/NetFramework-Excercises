@@ -17,7 +17,7 @@ namespace QuanLyHang.View
         private void InBaoCao_Load(object sender, EventArgs e)
         {
             reportViewer1.LocalReport.DataSources.Clear();
-            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", form_ManHinhChinh.bindingSource));            
+            //reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", form_ManHinhChinh.bindingSource));            
             reportParameters.Add(new ReportParameter("tenTaiKhoan", form_DangNhap.tenDangNhap));
             reportViewer1.LocalReport.SetParameters(reportParameters);
 
