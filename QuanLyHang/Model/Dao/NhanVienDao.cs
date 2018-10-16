@@ -20,24 +20,34 @@ namespace QuanLyHang.Model.Dao
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandText = "SELECT * FROM NhanVien";
-            SqlDataReader data = sqlCommand.ExecuteReader();
-
-            while (data.Read())
+            SqlDataReader data = null;
+            try
             {
-                NhanVienBean n = new NhanVienBean(int.Parse(data[0].ToString()), data[1].ToString(), data.GetDateTime(2), Boolean.Parse(data[3].ToString()), data[4].ToString(), float.Parse(data[5].ToString()));
-                list.Add(n);
+                data = sqlCommand.ExecuteReader();
+
+                while (data.Read())
+                {
+                    NhanVienBean n = new NhanVienBean(data.GetInt32(0), data.GetString(1), data.GetDateTime(2), data.GetBoolean(3), data.GetString(4), data.GetDouble(5));
+                    list.Add(n);
+                }
+            } catch (Exception ex)
+            {
+                throw ex;
             }
-            data.Close();
+            finally
+            {
+                data.Close();
+            }
             return list;
         }
 
-        public bool InsertNhanVien(string hoTen, bool gioiTinh, DateTime ngaySinh, string diaChi, float heSoLuong)
+        public bool InsertNhanVien(string hoTen, bool gioiTinh, DateTime ngaySinh, string diaChi, double heSoLuong)
         {
             SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandText = "INSERT INTO NhanVien VALUES(@hoVaTen, @ngaySinh, @gioiTinh, @diaChi, @heSoLuong)";
+            sqlCommand.CommandText = "INSERT INTO NhanVien(HoVaTen, NgaySinh, GioiTinh, DiaChi, HeSoLuong) VALUES(@hoVaTen, @ngaySinh, @gioiTinh, @diaChi, @heSoLuong)";
             sqlCommand.Parameters.AddWithValue("@hoVaTen", hoTen);
             sqlCommand.Parameters.AddWithValue("@ngaySinh", ngaySinh);
             sqlCommand.Parameters.AddWithValue("@gioiTinh", gioiTinh);
@@ -56,7 +66,7 @@ namespace QuanLyHang.Model.Dao
             return rowEffect > 0;
         }
 
-        public bool UpdateNhanVien(string maNhanVien, string hoTen, bool gioiTinh, DateTime ngaySinh, string diaChi, float heSoLuong)
+        public bool UpdateNhanVien(int maNhanVien, string hoTen, bool gioiTinh, DateTime ngaySinh, string diaChi, double heSoLuong)
         {
             SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
 
@@ -83,7 +93,7 @@ namespace QuanLyHang.Model.Dao
             return rowEffect > 0;
         }
 
-        public bool DeleteNhanVien(string maNhanVien)
+        public bool DeleteNhanVien(int maNhanVien)
         {
             SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
 

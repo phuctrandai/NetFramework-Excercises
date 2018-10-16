@@ -2,6 +2,7 @@
 using System;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using System.Collections.Generic;
 
 namespace QuanLyHang.View
 {
@@ -17,60 +18,45 @@ namespace QuanLyHang.View
 
         private void button_Add_Click(object sender, EventArgs e)
         {
-            string hoTen = textBox_HoTen.Text;
-            DateTime ngaySinh = dateTimePicker_NgaySinh.Value;
-            string diaChi = textBox_DiaChi.Text;
+            Dictionary<String, Object> nhanVienInfo = new Dictionary<string, object>();
+            nhanVienInfo.Add("hoTen", textBox_HoTen.Text);
+            nhanVienInfo.Add("gioiTinh", comboBox_GioiTinh.Text);
+            nhanVienInfo.Add("ngaySinh", dateTimePicker_NgaySinh.Value);
+            nhanVienInfo.Add("diaChi", textBox_DiaChi.Text);
+            nhanVienInfo.Add("heSoLuong", textBox_HeSoLuong.Text);
 
-            bool gioiTinh;
-            if (comboBox_GioiTinh.Text.Equals("Nam")) gioiTinh = true;
-            else gioiTinh = false;
+            try
+            {
+                nhanVienBo.InsertNhanVien(nhanVienInfo);
+                button_Show_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-            float heSoLuong;
-            if(!float.TryParse(textBox_HeSoLuong.Text, out heSoLuong))
-            {
-                MessageBox.Show("He so luong sai!");
-            }
-            else
-            {
-                try
-                {
-                    nhanVienBo.InsertNhanVien(hoTen, gioiTinh, ngaySinh, diaChi, heSoLuong);
-                    button_Show_Click(sender, e);
-                } catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
         }
 
         private void button_Update_Click(object sender, EventArgs e)
         {
-            string maNhanVien = label_MaNhanVien.Text;
-            string hoTen = textBox_HoTen.Text;
-            DateTime ngaySinh = dateTimePicker_NgaySinh.Value;
-            string diaChi = textBox_DiaChi.Text;
+            Dictionary<String, Object> nhanVienInfo = new Dictionary<string, object>();
+            nhanVienInfo.Add("maNhanVien", label_MaNhanVien.Text);
+            nhanVienInfo.Add("hoTen", textBox_HoTen.Text);
+            nhanVienInfo.Add("gioiTinh", comboBox_GioiTinh.Text);
+            nhanVienInfo.Add("ngaySinh", dateTimePicker_NgaySinh.Value);
+            nhanVienInfo.Add("diaChi", textBox_DiaChi.Text);
+            nhanVienInfo.Add("heSoLuong", textBox_HeSoLuong.Text);
 
-            bool gioiTinh;
-            if (comboBox_GioiTinh.Text.Equals("Nam")) gioiTinh = true;
-            else gioiTinh = false;
-
-            float heSoLuong;
-            if (!float.TryParse(textBox_HeSoLuong.Text, out heSoLuong))
+            try
             {
-                MessageBox.Show("He so luong sai!");
+                nhanVienBo.UpdateNhanVien(nhanVienInfo);
+                button_Show_Click(sender, e);
             }
-            else
+            catch (Exception ex)
             {
-                try
-                {
-                    nhanVienBo.UpdateNhanVien(maNhanVien, hoTen, gioiTinh, ngaySinh, diaChi, heSoLuong);
-                    button_Show_Click(sender, e);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                MessageBox.Show(ex.Message);
             }
+            
         }
 
         private void button_Delete_Click(object sender, EventArgs e)
@@ -85,7 +71,7 @@ namespace QuanLyHang.View
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
         private void button_Find_Click(object sender, EventArgs e)
@@ -96,7 +82,15 @@ namespace QuanLyHang.View
 
         private void button_Show_Click(object sender, EventArgs e)
         {
-            dataGridView_NhanVien.DataSource = nhanVienBo.LoadListNhanVien();
+            try
+            {
+                dataGridView_NhanVien.DataSource = null;
+                dataGridView_NhanVien.DataSource = nhanVienBo.List;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dataGridView_NhanVien_CellClick(object sender, DataGridViewCellEventArgs e)

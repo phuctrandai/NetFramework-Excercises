@@ -13,22 +13,39 @@ namespace QuanLyHang.Bo
         public NhanVienBo()
         {
             nhanVienDao = new NhanVienDao();
-            list = new List<NhanVienBean>();
         }
 
-        public List<NhanVienBean> LoadListNhanVien()
-        {
-            list = nhanVienDao.GetListNhanVien();
-            return list;
-        }
+        public List<NhanVienBean> List { get { if(list == null) list = nhanVienDao.GetListNhanVien(); return list; } }
 
         public List<NhanVienBean> GetListNhanVien()
         {
+            try
+            {
+                list = nhanVienDao.GetListNhanVien();
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
             return list;
         }
 
-        public bool InsertNhanVien(string hoTen, bool gioiTinh, DateTime ngaySinh, string diaChi, float heSoLuong)
+        public bool InsertNhanVien(Dictionary<String, Object> nhanVienInfo)
         {
+            string hoTen = nhanVienInfo["hoTen"].ToString();
+
+            bool gioiTinh;
+            if (nhanVienInfo["gioiTinh"].Equals("Nam")) gioiTinh = true;
+            else gioiTinh = false;
+
+            DateTime ngaySinh = DateTime.Parse(nhanVienInfo["ngaySinh"].ToString());
+            string diaChi = nhanVienInfo["diaChi"].ToString();
+
+            double heSoLuong;
+            if (!double.TryParse(nhanVienInfo["heSoLuong"].ToString(), out heSoLuong))
+            {
+                throw (new Exception("He so luong khong dung!"));
+            }
+
             bool result = false;
 
             try
@@ -47,8 +64,24 @@ namespace QuanLyHang.Bo
             return result;
         }
 
-        public bool UpdateNhanVien(string maNhanVien, string hoTen, bool gioiTinh, DateTime ngaySinh, string diaChi, float heSoLuong)
+        public bool UpdateNhanVien(Dictionary<String, Object> nhanVienInfo)
         {
+            int maNhanVien = Int32.Parse(nhanVienInfo["maNhanVien"].ToString());
+            string hoTen = nhanVienInfo["hoTen"].ToString();
+
+            bool gioiTinh;
+            if (nhanVienInfo["gioiTinh"].Equals("Nam")) gioiTinh = true;
+            else gioiTinh = false;
+
+            DateTime ngaySinh = DateTime.Parse(nhanVienInfo["ngaySinh"].ToString());
+            string diaChi = nhanVienInfo["diaChi"].ToString();
+
+            double heSoLuong;
+            if (!double.TryParse(nhanVienInfo["heSoLuong"].ToString(), out heSoLuong))
+            {
+                throw (new Exception("He so luong khong dung!"));
+            }
+
             bool result = false;
 
             try
@@ -68,15 +101,15 @@ namespace QuanLyHang.Bo
             return result;
         }
 
-        public bool DeleteNhanVien(string maNhanVien)
+        public bool DeleteNhanVien(object maNhanVien)
         {
             bool result = false;
 
             try
             {
-                int index = list.FindIndex(x => x.MaNhanVien.Equals(maNhanVien));
+                int index = list.FindIndex(x => x.MaNhanVien.Equals(int.Parse(maNhanVien.ToString())));
                 list.RemoveAt(index);
-                result = nhanVienDao.DeleteNhanVien(maNhanVien);
+                result = nhanVienDao.DeleteNhanVien(Int32.Parse(maNhanVien.ToString()));
             }
             catch (Exception ex)
             {
@@ -87,7 +120,15 @@ namespace QuanLyHang.Bo
 
         public List<NhanVienBean> FindNhanVien(string keyWord)
         {
-            return nhanVienDao.FindNhanVien(keyWord);
+            List<NhanVienBean> result = new List<NhanVienBean>();
+
+            foreach(NhanVienBean nv in list)
+            {
+                if (nv.HoVaTen.ToLower().Trim().Contains(keyWord.ToLower().Trim()))
+                    result.Add(nv);
+            }
+
+            return result;
         }
     }
 }
