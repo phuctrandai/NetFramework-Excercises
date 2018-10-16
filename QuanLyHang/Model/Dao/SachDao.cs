@@ -17,17 +17,23 @@ namespace QuanLyHang.Model.Dao
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = "SELECT * FROM [QLSach].[dbo].[sach]";
             sqlCommand.CommandType = System.Data.CommandType.Text;
-            sqlCommand.Connection = ConnectDataBase.getInstance().SqlConnection;
+            sqlCommand.Connection = ConnectSqlServer.getInstance().SqlConnection;
+            SqlDataReader sqlData;
 
-            SqlDataReader sqlData = sqlCommand.ExecuteReader();
-
+            try
+            {
+                sqlData = sqlCommand.ExecuteReader();
+            } catch (SqlException e)
+            {
+                throw e;
+            }
             List<SachBean> list = new List<SachBean>();
             while (sqlData.Read())
             {
                 SachBean sach = new SachBean(sqlData["masach"].ToString(), sqlData["tensach"].ToString(), (long)sqlData["soluong"], (long)sqlData["gia"], sqlData["maloai"].ToString(), sqlData["sotap"].ToString(), sqlData["anh"].ToString(), sqlData["NgayNhap"].ToString(), sqlData["tacgia"].ToString());
                 list.Add(sach);
             }
-            ConnectDataBase.getInstance().Disconnect();
+            ConnectSqlServer.getInstance().Disconnect();
             return list;
         }
     }

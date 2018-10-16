@@ -25,27 +25,68 @@ namespace QuanLyHang.View
 
         private void button_Connect_Click(object sender, EventArgs e)
         {
-            if (comboBox_DataSource.SelectedIndex == -1)
+            bool isConnected = false;
+            if (comboBox_DataSource.SelectedIndex == MicrosoftSQLServer)
             {
-                MessageBox.Show("Chua chon Data source!", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isConnected = connectToSQLServer();
             }
-            else if (comboBox_Databases.SelectedIndex == -1)
+            else if (comboBox_DataSource.SelectedIndex == MicrosoftExcel)
             {
-                MessageBox.Show("Chua chon Database!", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isConnected = connectToExcel();
             }
             else
             {
-                if(comboBox_Authentication.SelectedIndex == WindowsAuthentication)
-                {
-                    ConnectDataBase.getInstance().Connect(textBox_ServerName.Text, comboBox_Databases.Text);
-                }
-                else
-                {
-                    ConnectDataBase.getInstance().Connect(textBox_ServerName.Text, comboBox_Databases.Text, textBox_UserName.Text, textBox_Password.Text);
-                }
+                MessageBox.Show("Chua chon Data source!", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if(isConnected)
+            {
                 this.Hide();
-                new form_QuanLySach().ShowDialog();
-                this.Close();
+                new QuanLyNhanVien().ShowDialog();
+                ConnectSqlServer.getInstance().Disconnect();
+                ConnectOleDB.getInstance().Disconnect();
+                this.Show();
+            }
+        }
+
+        private bool connectToSQLServer()
+        {
+            if (comboBox_Databases.SelectedIndex != -1)
+            {
+                try
+                {
+                    if (comboBox_Authentication.SelectedIndex == WindowsAuthentication)
+                    {
+                        ConnectSqlServer.getInstance().Connect(textBox_ServerName.Text, comboBox_Databases.Text);
+                    }
+                    else
+                    {
+                        ConnectSqlServer.getInstance().Connect(textBox_ServerName.Text, comboBox_Databases.Text, textBox_UserName.Text, textBox_Password.Text);
+                    }
+                    return true;
+                } catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    return false;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chua chon Database!", "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        private bool connectToExcel()
+        {
+            try
+            {
+                ConnectOleDB.getInstance().Connect(@"provider=Microsoft.ACE.OLEDB.12.0;Data Source='" + textBox_ExcelFile.Text + "';Extended Properties='Excel 12.0;HDR=YES;';");
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
             }
         }
 
@@ -56,7 +97,7 @@ namespace QuanLyHang.View
 
         private void comboBox_DataSource_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox_DataSource.SelectedIndex == MicrosoftSQLServer)
+            if (comboBox_DataSource.SelectedIndex == MicrosoftSQLServer)
             {
                 panel_ConnectToExcel.Enabled = false;
                 panel_ConnectToSqlServer.Enabled = true;
@@ -70,7 +111,7 @@ namespace QuanLyHang.View
 
         private void comboBox_Authentication_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox_Authentication.SelectedIndex == SQLAuthentication)
+            if (comboBox_Authentication.SelectedIndex == SQLAuthentication)
             {
                 panel_SQLServerAuthentication.Enabled = true;
             }
@@ -87,15 +128,31 @@ namespace QuanLyHang.View
 
         private void GetDatabases()
         {
-            ConnectDataBase.getInstance().Connect(textBox_ServerName.Text, "master");
-            SqlCommand sqlCommand = new SqlCommand("Select * from sys.databases", ConnectDataBase.getInstance().SqlConnection);
-            SqlDataReader dataReader = sqlCommand.ExecuteReader();
-            comboBox_Databases.Items.Clear();
-            while (dataReader.Read())
+            try
             {
-                comboBox_Databases.Items.Add(dataReader["name"].ToString());
+                ConnectSqlServer.getInstance().Connect(textBox_ServerName.Text, "master");
+                SqlCommand sqlCommand = new SqlCommand("Select * from sys.databases", ConnectSqlServer.getInstance().SqlConnection);
+                SqlDataReader dataReader = sqlCommand.ExecuteReader();
+                comboBox_Databases.Items.Clear();
+                while (dataReader.Read())
+                {
+                    comboBox_Databases.Items.Add(dataReader["name"].ToString());
+                }
             }
-            ConnectDataBase.getInstance().Disconnect();
+            catch (SqlException e)
+            {
+                MessageBox.Show(e.Message, "Loi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                ConnectSqlServer.getInstance().Disconnect();
+            }
+        }
+
+        private void button_BrowseFile_Click(object sender, EventArgs e)
+        {
+            openFileDialog_BrowseExcelFile.ShowDialog();
+            textBox_ExcelFile.Text = openFileDialog_BrowseExcelFile.FileName;
         }
     }
 }

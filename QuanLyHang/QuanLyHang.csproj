@@ -69,7 +69,10 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -82,9 +85,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bo\LoaiBo.cs" />
+    <Compile Include="Bo\NhanVienBo.cs" />
     <Compile Include="Bo\SachBo.cs" />
-    <Compile Include="Model\Dao\ConnectDataBase.cs" />
+    <Compile Include="Model\Dao\ConnectSqlServer.cs" />
+    <Compile Include="Model\Dao\ConnectOleDB.cs" />
+    <Compile Include="Model\Dao\LoaiDao.cs" />
+    <Compile Include="Model\Dao\NhanVienDao.cs" />
     <Compile Include="Model\Dao\SachDao.cs" />
+    <Compile Include="Model\LoaiBean.cs" />
+    <Compile Include="Model\NhanVienBean.cs" />
     <Compile Include="Model\SachBean.cs" />
     <Compile Include="View\DangNhap.cs">
       <SubType>Form</SubType>
@@ -106,13 +116,38 @@
     <Compile Include="View\KetNoiDataBase.Designer.cs">
       <DependentUpon>KetNoiDataBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\QuanLyLoaiSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuanLyLoaiSach.Designer.cs">
+      <DependentUpon>QuanLyLoaiSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\QuanLyNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\QuanLyNhanVien.Designer.cs">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\QuanLySach.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\QuanLySach.Designer.cs">
       <DependentUpon>QuanLySach.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\SSMSDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SSMSDemo.Designer.cs">
+      <DependentUpon>SSMSDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\SSMSDemoKetNoiServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\SSMSDemoKetNoiServer.Designer.cs">
+      <DependentUpon>SSMSDemoKetNoiServer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Report\BaoCao1.rdlc" />
+    <EmbeddedResource Include="Report\BaoCaoLoaiSach.rdlc" />
     <EmbeddedResource Include="View\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,10 +166,26 @@
     <EmbeddedResource Include="View\KetNoiDataBase.resx">
       <DependentUpon>KetNoiDataBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\QuanLyLoaiSach.resx">
+      <DependentUpon>QuanLyLoaiSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\QuanLyNhanVien.resx">
+      <DependentUpon>QuanLyNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\QuanLySach.resx">
       <DependentUpon>QuanLySach.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\SSMSDemo.resx">
+      <DependentUpon>SSMSDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\SSMSDemoKetNoiServer.resx">
+      <DependentUpon>SSMSDemoKetNoiServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\QuanLyHang.Model.HangBean.datasource" />
+    <None Include="Properties\DataSources\QuanLyHang.Model.LoaiBean.datasource" />
+    <None Include="Properties\DataSources\QuanLyHang.Model.SachBean.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -144,6 +195,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Report\ThoiKhoaBieu.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -156,6 +208,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

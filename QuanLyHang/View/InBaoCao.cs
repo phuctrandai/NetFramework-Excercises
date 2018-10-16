@@ -14,12 +14,14 @@ namespace QuanLyHang.View
 
         private List<ReportParameter> reportParameters = new List<ReportParameter>();
 
+        public Object dataSource = null;
+
         private void InBaoCao_Load(object sender, EventArgs e)
         {
             reportViewer1.LocalReport.DataSources.Clear();
-            //reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", form_ManHinhChinh.bindingSource));            
-            reportParameters.Add(new ReportParameter("tenTaiKhoan", form_DangNhap.tenDangNhap));
-            reportViewer1.LocalReport.SetParameters(reportParameters);
+            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet_Loai", dataSource));            
+            //reportParameters.Add(new ReportParameter("tenTaiKhoan", "Phuc"));
+            //reportViewer1.LocalReport.SetParameters(reportParameters);
 
             this.reportViewer1.RefreshReport();
         }

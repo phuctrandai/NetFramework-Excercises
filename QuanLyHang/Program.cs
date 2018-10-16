@@ -17,7 +17,7 @@ namespace QuanLyHang
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new form_DangNhap());
+            Application.Run(new form_KetNoiDatabase());
         }
     }
 }

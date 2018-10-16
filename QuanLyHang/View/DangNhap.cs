@@ -41,5 +41,10 @@ namespace QuanLyHang
                 return true;
             return false;
         }
+
+        private void form_DangNhap_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

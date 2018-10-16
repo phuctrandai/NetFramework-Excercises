@@ -50,6 +50,8 @@
             this.textBox_ExcelFile = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.button_BrowseFile = new System.Windows.Forms.Button();
+            this.openFileDialog_BrowseExcelFile = new System.Windows.Forms.OpenFileDialog();
             this.panel_ConnectToSqlServer.SuspendLayout();
             this.panel_SQLServerAuthentication.SuspendLayout();
             this.panel_ConnectToExcel.SuspendLayout();
@@ -233,6 +235,7 @@
             // panel_ConnectToExcel
             // 
             this.panel_ConnectToExcel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_ConnectToExcel.Controls.Add(this.button_BrowseFile);
             this.panel_ConnectToExcel.Controls.Add(this.label8);
             this.panel_ConnectToExcel.Controls.Add(this.textBox_ExcelFile);
             this.panel_ConnectToExcel.Controls.Add(this.label7);
@@ -276,6 +279,20 @@
             this.label10.TabIndex = 14;
             this.label10.Text = "Choose your connect";
             // 
+            // button_BrowseFile
+            // 
+            this.button_BrowseFile.Location = new System.Drawing.Point(315, 24);
+            this.button_BrowseFile.Name = "button_BrowseFile";
+            this.button_BrowseFile.Size = new System.Drawing.Size(27, 20);
+            this.button_BrowseFile.TabIndex = 3;
+            this.button_BrowseFile.Text = "...";
+            this.button_BrowseFile.UseVisualStyleBackColor = true;
+            this.button_BrowseFile.Click += new System.EventHandler(this.button_BrowseFile_Click);
+            // 
+            // openFileDialog_BrowseExcelFile
+            // 
+            this.openFileDialog_BrowseExcelFile.Filter = "Excel files|*.xlsx";
+            // 
             // form_KetNoiDatabase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,7 +305,10 @@
             this.Controls.Add(this.panel_ConnectToSqlServer);
             this.Controls.Add(this.button_Exit);
             this.Controls.Add(this.button_Connect);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "form_KetNoiDatabase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KetNoiDataBase";
             this.Load += new System.EventHandler(this.KetNoiDataBase_Load);
             this.panel_ConnectToSqlServer.ResumeLayout(false);
@@ -326,5 +346,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel_SQLServerAuthentication;
+        private System.Windows.Forms.Button button_BrowseFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialog_BrowseExcelFile;
     }
 }

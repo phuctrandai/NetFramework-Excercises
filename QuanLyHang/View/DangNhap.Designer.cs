@@ -41,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(115, 9);
+            this.label1.Location = new System.Drawing.Point(111, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 34);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(69, 78);
+            this.label2.Location = new System.Drawing.Point(52, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 1;
@@ -59,7 +59,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(90, 128);
+            this.label3.Location = new System.Drawing.Point(52, 128);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 13);
             this.label3.TabIndex = 1;
@@ -67,21 +67,21 @@
             // 
             // textBox_TenTaiKhoan
             // 
-            this.textBox_TenTaiKhoan.Location = new System.Drawing.Point(171, 75);
+            this.textBox_TenTaiKhoan.Location = new System.Drawing.Point(55, 86);
             this.textBox_TenTaiKhoan.Name = "textBox_TenTaiKhoan";
-            this.textBox_TenTaiKhoan.Size = new System.Drawing.Size(191, 20);
+            this.textBox_TenTaiKhoan.Size = new System.Drawing.Size(287, 20);
             this.textBox_TenTaiKhoan.TabIndex = 0;
             // 
             // textBox_MatKhau
             // 
-            this.textBox_MatKhau.Location = new System.Drawing.Point(171, 125);
+            this.textBox_MatKhau.Location = new System.Drawing.Point(55, 144);
             this.textBox_MatKhau.Name = "textBox_MatKhau";
-            this.textBox_MatKhau.Size = new System.Drawing.Size(191, 20);
+            this.textBox_MatKhau.Size = new System.Drawing.Size(287, 20);
             this.textBox_MatKhau.TabIndex = 1;
             // 
             // button_DangNhap
             // 
-            this.button_DangNhap.Location = new System.Drawing.Point(171, 176);
+            this.button_DangNhap.Location = new System.Drawing.Point(101, 198);
             this.button_DangNhap.Name = "button_DangNhap";
             this.button_DangNhap.Size = new System.Drawing.Size(75, 43);
             this.button_DangNhap.TabIndex = 2;
@@ -92,7 +92,7 @@
             // button_Thoat
             // 
             this.button_Thoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Thoat.Location = new System.Drawing.Point(287, 176);
+            this.button_Thoat.Location = new System.Drawing.Point(208, 198);
             this.button_Thoat.Name = "button_Thoat";
             this.button_Thoat.Size = new System.Drawing.Size(75, 43);
             this.button_Thoat.TabIndex = 3;
@@ -106,7 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button_Thoat;
-            this.ClientSize = new System.Drawing.Size(412, 253);
+            this.ClientSize = new System.Drawing.Size(377, 253);
             this.ControlBox = false;
             this.Controls.Add(this.button_Thoat);
             this.Controls.Add(this.button_DangNhap);
@@ -115,9 +115,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "form_DangNhap";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            this.Load += new System.EventHandler(this.form_DangNhap_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox_ThaoTac = new System.Windows.Forms.GroupBox();
+            this.button_DangXuat = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button_In = new System.Windows.Forms.Button();
             this.button_TimKiem = new System.Windows.Forms.Button();
@@ -36,7 +37,6 @@
             this.button_Xoa = new System.Windows.Forms.Button();
             this.button_Them = new System.Windows.Forms.Button();
             this.dataGridView_Sach = new System.Windows.Forms.DataGridView();
-            this.button_DangXuat = new System.Windows.Forms.Button();
             this.groupBox_ThaoTac.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Sach)).BeginInit();
             this.SuspendLayout();
@@ -59,13 +59,24 @@
             this.groupBox_ThaoTac.TabStop = false;
             this.groupBox_ThaoTac.Text = "Thao tác";
             // 
+            // button_DangXuat
+            // 
+            this.button_DangXuat.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button_DangXuat.Location = new System.Drawing.Point(656, 16);
+            this.button_DangXuat.Name = "button_DangXuat";
+            this.button_DangXuat.Size = new System.Drawing.Size(66, 69);
+            this.button_DangXuat.TabIndex = 6;
+            this.button_DangXuat.Text = "Đăng xuất";
+            this.button_DangXuat.UseVisualStyleBackColor = true;
+            this.button_DangXuat.Click += new System.EventHandler(this.button_DangXuat_Click);
+            // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(441, 26);
+            this.label1.Location = new System.Drawing.Point(411, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(220, 37);
             this.label1.TabIndex = 5;
@@ -130,25 +141,17 @@
             this.dataGridView_Sach.Size = new System.Drawing.Size(725, 362);
             this.dataGridView_Sach.TabIndex = 1;
             // 
-            // button_DangXuat
-            // 
-            this.button_DangXuat.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button_DangXuat.Location = new System.Drawing.Point(679, 16);
-            this.button_DangXuat.Name = "button_DangXuat";
-            this.button_DangXuat.Size = new System.Drawing.Size(43, 69);
-            this.button_DangXuat.TabIndex = 6;
-            this.button_DangXuat.Text = "Đăng xuất";
-            this.button_DangXuat.UseVisualStyleBackColor = true;
-            this.button_DangXuat.Click += new System.EventHandler(this.button_DangXuat_Click);
-            // 
             // form_QuanLySach
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.dataGridView_Sach);
             this.Controls.Add(this.groupBox_ThaoTac);
+            this.MaximizeBox = false;
             this.Name = "form_QuanLySach";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý sách";
             this.Load += new System.EventHandler(this.form_QuanLySach_Load);
             this.groupBox_ThaoTac.ResumeLayout(false);
