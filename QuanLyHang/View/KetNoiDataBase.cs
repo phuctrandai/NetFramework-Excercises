@@ -41,8 +41,8 @@ namespace QuanLyHang.View
             if(isConnected)
             {
                 this.Hide();
-                new QuanLyNhanVien().ShowDialog();
-                ConnectSqlServer.getInstance().Disconnect();
+                new form_DangNhap().ShowDialog();
+                ConnectSqlServer.GetInstance().Disconnect();
                 ConnectOleDB.getInstance().Disconnect();
                 this.Show();
             }
@@ -56,11 +56,11 @@ namespace QuanLyHang.View
                 {
                     if (comboBox_Authentication.SelectedIndex == WindowsAuthentication)
                     {
-                        ConnectSqlServer.getInstance().Connect(textBox_ServerName.Text, comboBox_Databases.Text);
+                        ConnectSqlServer.GetInstance().Connect(textBox_ServerName.Text, comboBox_Databases.Text);
                     }
                     else
                     {
-                        ConnectSqlServer.getInstance().Connect(textBox_ServerName.Text, comboBox_Databases.Text, textBox_UserName.Text, textBox_Password.Text);
+                        ConnectSqlServer.GetInstance().Connect(textBox_ServerName.Text, comboBox_Databases.Text, textBox_UserName.Text, textBox_Password.Text);
                     }
                     return true;
                 } catch (Exception e)
@@ -130,8 +130,8 @@ namespace QuanLyHang.View
         {
             try
             {
-                ConnectSqlServer.getInstance().Connect(textBox_ServerName.Text, "master");
-                SqlCommand sqlCommand = new SqlCommand("Select * from sys.databases", ConnectSqlServer.getInstance().SqlConnection);
+                ConnectSqlServer.GetInstance().Connect(textBox_ServerName.Text, "master");
+                SqlCommand sqlCommand = new SqlCommand("Select * from sys.databases", ConnectSqlServer.GetInstance().SqlConnection);
                 SqlDataReader dataReader = sqlCommand.ExecuteReader();
                 comboBox_Databases.Items.Clear();
                 while (dataReader.Read())
@@ -145,7 +145,7 @@ namespace QuanLyHang.View
             }
             finally
             {
-                ConnectSqlServer.getInstance().Disconnect();
+                ConnectSqlServer.GetInstance().Disconnect();
             }
         }
 

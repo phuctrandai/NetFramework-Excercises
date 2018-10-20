@@ -7,7 +7,7 @@ namespace QuanLyHang.Model.Dao
     {
         private static ConnectSqlServer instance;
 
-        public static ConnectSqlServer getInstance()
+        public static ConnectSqlServer GetInstance()
         {
             if (instance == null) instance = new ConnectSqlServer(); return instance;
         }

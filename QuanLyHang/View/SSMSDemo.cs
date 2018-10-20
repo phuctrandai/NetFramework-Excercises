@@ -16,7 +16,7 @@ namespace QuanLyHang.View
 
         private void form_SSMSDemo_Load(object sender, EventArgs e)
         {
-            if (ConnectSqlServer.getInstance().SqlConnection.State == System.Data.ConnectionState.Open)
+            if (ConnectSqlServer.GetInstance().SqlConnection.State == System.Data.ConnectionState.Open)
             {
                 LoadAllDatabase();
             }
@@ -26,7 +26,7 @@ namespace QuanLyHang.View
         {
             SqlCommand command = new SqlCommand();
             command.CommandText = "SELECT [name] FROM [master].[sys].[databases]";
-            command.Connection = ConnectSqlServer.getInstance().SqlConnection;
+            command.Connection = ConnectSqlServer.GetInstance().SqlConnection;
             SqlDataReader databases;
 
             TreeNode serverNode = new TreeNode(form_KetNoiServer.serverName);
@@ -47,7 +47,7 @@ namespace QuanLyHang.View
             {
                 MessageBox.Show(e.Message);
             }
-            ConnectSqlServer.getInstance().Disconnect();
+            ConnectSqlServer.GetInstance().Disconnect();
 
             foreach (TreeNode node in serverNode.Nodes)
             {
@@ -69,16 +69,16 @@ namespace QuanLyHang.View
                 {
                     MessageBox.Show(e.Message);
                 }
-                ConnectSqlServer.getInstance().Disconnect();
+                ConnectSqlServer.GetInstance().Disconnect();
             }
         }
 
         private SqlDataReader LoadAllTable(string databaseName)
         {
-            ConnectSqlServer.getInstance().Connect(@".\SQLEXPRESS", databaseName);
+            ConnectSqlServer.GetInstance().Connect(@".\SQLEXPRESS", databaseName);
             SqlCommand command = new SqlCommand();
             command.CommandText = "SELECT * FROM [" + databaseName + "].[sys].[tables]";
-            command.Connection = ConnectSqlServer.getInstance().SqlConnection;
+            command.Connection = ConnectSqlServer.GetInstance().SqlConnection;
 
             SqlDataReader data = command.ExecuteReader();
             return data;
@@ -94,15 +94,15 @@ namespace QuanLyHang.View
             TreeNode selectedNode = treeView_Databases.SelectedNode;
             string tableName = selectedNode.Text;
 
-            ConnectSqlServer.getInstance().Connect(@".\SQLEXPRESS", selectedNode.Parent.Text);
+            ConnectSqlServer.GetInstance().Connect(@".\SQLEXPRESS", selectedNode.Parent.Text);
             string commandText = "SELECT * FROM [" + selectedNode.Parent.Text + "].[dbo].[" + tableName + "]";
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(commandText, ConnectSqlServer.getInstance().SqlConnection);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(commandText, ConnectSqlServer.GetInstance().SqlConnection);
 
             DataTable table = new DataTable(tableName);
             sqlDataAdapter.Fill(table);
 
             dataGridView_View.DataSource = table;
-            ConnectSqlServer.getInstance().Disconnect();
+            ConnectSqlServer.GetInstance().Disconnect();
         }
 
         private void showStructure_click(object sender, EventArgs e)
@@ -115,14 +115,14 @@ namespace QuanLyHang.View
             TreeNode selectedNode = treeView_Databases.SelectedNode;
             string tableName = selectedNode.Text;
 
-            ConnectSqlServer.getInstance().Connect(@".\SQLEXPRESS", selectedNode.Parent.Text);
+            ConnectSqlServer.GetInstance().Connect(@".\SQLEXPRESS", selectedNode.Parent.Text);
             string commandText = "SELECT [COLUMN_NAME], [IS_NULLABLE],[DATA_TYPE],[CHARACTER_MAXIMUM_LENGTH]FROM[QLSach].[INFORMATION_SCHEMA].[COLUMNS] WHERE TABLE_NAME='" + tableName + "'";
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(commandText, ConnectSqlServer.getInstance().SqlConnection);
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(commandText, ConnectSqlServer.GetInstance().SqlConnection);
             DataTable table = new DataTable(tableName);
             sqlDataAdapter.Fill(table);
 
             dataGridView_View.DataSource = table;
-            ConnectSqlServer.getInstance().Disconnect();
+            ConnectSqlServer.GetInstance().Disconnect();
         }
 
         private void treeView_Databases_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)

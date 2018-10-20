@@ -81,7 +81,7 @@
             // 
             // button_DangNhap
             // 
-            this.button_DangNhap.Location = new System.Drawing.Point(101, 198);
+            this.button_DangNhap.Location = new System.Drawing.Point(110, 191);
             this.button_DangNhap.Name = "button_DangNhap";
             this.button_DangNhap.Size = new System.Drawing.Size(75, 43);
             this.button_DangNhap.TabIndex = 2;
@@ -92,7 +92,7 @@
             // button_Thoat
             // 
             this.button_Thoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_Thoat.Location = new System.Drawing.Point(208, 198);
+            this.button_Thoat.Location = new System.Drawing.Point(217, 191);
             this.button_Thoat.Name = "button_Thoat";
             this.button_Thoat.Size = new System.Drawing.Size(75, 43);
             this.button_Thoat.TabIndex = 3;
@@ -106,7 +106,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button_Thoat;
-            this.ClientSize = new System.Drawing.Size(377, 253);
+            this.ClientSize = new System.Drawing.Size(377, 246);
             this.ControlBox = false;
             this.Controls.Add(this.button_Thoat);
             this.Controls.Add(this.button_DangNhap);

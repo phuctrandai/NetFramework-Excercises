@@ -7,13 +7,11 @@ namespace QuanLyHang.Bo
 {
     class LoaiBo
     {
-        private LoaiDao loaiDao;
         private List<LoaiBean> listLoai;
 
         public LoaiBo()
         {
-            loaiDao = new LoaiDao();
-            listLoai = loaiDao.GetListLoai();
+            listLoai = LoaiDao.GetInstance().GetListLoai();
         }
 
         public List<LoaiBean> GetListLoai()
@@ -28,7 +26,7 @@ namespace QuanLyHang.Bo
             bool result = false;
             try
             {
-                result = loaiDao.AddLoai(maLoai, tenLoai);
+                result = LoaiDao.GetInstance().AddLoai(maLoai, tenLoai);
             } catch (Exception ex)
             {
                 throw ex;
@@ -42,7 +40,7 @@ namespace QuanLyHang.Bo
             bool result = false;
             try
             {
-                result = loaiDao.DeleteLoai(maLoai);
+                result = LoaiDao.GetInstance().DeleteLoai(maLoai);
             }
             catch (Exception ex)
             {
@@ -58,7 +56,7 @@ namespace QuanLyHang.Bo
             bool result = false;
             try
             {
-                result = loaiDao.UpdateLoai(maLoai, newTenLoai);
+                result = LoaiDao.GetInstance().UpdateLoai(maLoai, newTenLoai);
             }
             catch (Exception ex)
             {

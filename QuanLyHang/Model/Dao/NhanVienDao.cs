@@ -15,7 +15,7 @@ namespace QuanLyHang.Model.Dao
 
         public List<NhanVienBean> GetListNhanVien()
         {
-            SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
+            SqlConnection sqlConnection = ConnectSqlServer.GetInstance().SqlConnection;
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnection;
@@ -43,7 +43,7 @@ namespace QuanLyHang.Model.Dao
 
         public bool InsertNhanVien(string hoTen, bool gioiTinh, DateTime ngaySinh, string diaChi, double heSoLuong)
         {
-            SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
+            SqlConnection sqlConnection = ConnectSqlServer.GetInstance().SqlConnection;
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnection;
@@ -68,7 +68,7 @@ namespace QuanLyHang.Model.Dao
 
         public bool UpdateNhanVien(int maNhanVien, string hoTen, bool gioiTinh, DateTime ngaySinh, string diaChi, double heSoLuong)
         {
-            SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
+            SqlConnection sqlConnection = ConnectSqlServer.GetInstance().SqlConnection;
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnection;
@@ -95,7 +95,7 @@ namespace QuanLyHang.Model.Dao
 
         public bool DeleteNhanVien(int maNhanVien)
         {
-            SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
+            SqlConnection sqlConnection = ConnectSqlServer.GetInstance().SqlConnection;
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnection;
@@ -118,7 +118,7 @@ namespace QuanLyHang.Model.Dao
 
         public List<NhanVienBean> FindNhanVien(string keyWord)
         {
-            SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
+            SqlConnection sqlConnection = ConnectSqlServer.GetInstance().SqlConnection;
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.Connection = sqlConnection;

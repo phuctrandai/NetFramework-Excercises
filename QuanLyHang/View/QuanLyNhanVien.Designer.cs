@@ -1,6 +1,6 @@
 ﻿namespace QuanLyHang.View
 {
-    partial class QuanLyNhanVien
+    partial class form_QuanLyNhanVien
     {
         /// <summary>
         /// Required designer variable.
@@ -214,7 +214,7 @@
             this.button_Show.UseVisualStyleBackColor = true;
             this.button_Show.Click += new System.EventHandler(this.button_Show_Click);
             // 
-            // QuanLyNhanVien
+            // form_QuanLyNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -237,7 +237,7 @@
             this.Controls.Add(this.label_MaNhanVien);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView_NhanVien);
-            this.Name = "QuanLyNhanVien";
+            this.Name = "form_QuanLyNhanVien";
             this.Text = "QuanLyNhanVien";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_NhanVien)).EndInit();
             this.ResumeLayout(false);

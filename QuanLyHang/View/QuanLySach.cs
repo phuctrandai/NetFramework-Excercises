@@ -16,7 +16,7 @@ namespace QuanLyHang.View
 
         private void form_QuanLySach_Load(object sender, EventArgs e)
         {
-            if(ConnectSqlServer.getInstance().SqlConnection.State == System.Data.ConnectionState.Open)
+            if(ConnectSqlServer.GetInstance().SqlConnection.State == System.Data.ConnectionState.Open)
                 LoadDanhSach();
             else
             {

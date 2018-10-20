@@ -6,13 +6,20 @@ namespace QuanLyHang.Model.Dao
 {
     public class LoaiDao
     {
-        public LoaiDao() { }
+        private LoaiDao() { }
+
+        private static LoaiDao instance;
+
+        public static LoaiDao GetInstance()
+        {
+            if (instance == null) instance = new LoaiDao(); return instance;
+        }
 
         public List<LoaiBean> GetListLoai()
         {
             List<LoaiBean> list = new List<LoaiBean>();
 
-            SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
+            SqlConnection sqlConnection = ConnectSqlServer.GetInstance().SqlConnection;
             SqlCommand sqlCommand = new SqlCommand("SELECT * FROM loai", sqlConnection);
             
             SqlDataReader dataReader = sqlCommand.ExecuteReader();
@@ -29,7 +36,7 @@ namespace QuanLyHang.Model.Dao
 
         public bool AddLoai(string maLoai, string tenLoai)
         {
-            SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
+            SqlConnection sqlConnection = ConnectSqlServer.GetInstance().SqlConnection;
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = "INSERT INTO loai VALUES(@maLoai, @tenLoai)";
@@ -45,12 +52,13 @@ namespace QuanLyHang.Model.Dao
             {
                 throw ex;
             }
+            Console.WriteLine("Load loai sach");
             return (rowEffect > 0);
         }
 
         public bool DeleteLoai(string maLoai)
         {
-            SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
+            SqlConnection sqlConnection = ConnectSqlServer.GetInstance().SqlConnection;
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = "DELETE FROM loai WHERE maloai = @maLoai";
@@ -72,7 +80,7 @@ namespace QuanLyHang.Model.Dao
 
         public bool UpdateLoai(string maLoai, string newTenLoai)
         {
-            SqlConnection sqlConnection = ConnectSqlServer.getInstance().SqlConnection;
+            SqlConnection sqlConnection = ConnectSqlServer.GetInstance().SqlConnection;
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = "UPDATE loai SET tenloai = @newTenLoai WHERE maloai = @maLoai";

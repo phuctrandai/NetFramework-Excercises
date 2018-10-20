@@ -16,5 +16,10 @@ namespace QuanLyHang.Bo
         {
             return SachDao.getInstance().GetSach();
         }
+
+        public List<SachBean> GetSachTheoLoai(string maLoai)
+        {
+            return SachDao.getInstance().GetSachByLoai(maLoai);
+        }
     }
 }

@@ -43,16 +43,16 @@ namespace QuanLyHang.View
             {
                 if (comboBox_Authentication.SelectedIndex == WindowsAuthentication)
                 {
-                    ConnectSqlServer.getInstance().Connect(textBox_ServerName.Text, "master");
+                    ConnectSqlServer.GetInstance().Connect(textBox_ServerName.Text, "master");
                 }
                 else
                 {
-                    ConnectSqlServer.getInstance().Connect(textBox_ServerName.Text, "master", textBox_UserName.Text, textBox_Password.Text);
+                    ConnectSqlServer.GetInstance().Connect(textBox_ServerName.Text, "master", textBox_UserName.Text, textBox_Password.Text);
                 }
                 serverName = textBox_ServerName.Text;
                 this.Hide();
                 new form_SSMSDemo().ShowDialog();
-                ConnectSqlServer.getInstance().Disconnect();
+                ConnectSqlServer.GetInstance().Disconnect();
                 this.Show();
             } catch (Exception ex)
             {

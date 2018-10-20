@@ -6,11 +6,11 @@ using System.Collections.Generic;
 
 namespace QuanLyHang.View
 {
-    public partial class QuanLyNhanVien : Form
+    public partial class form_QuanLyNhanVien : Form
     {
         private NhanVienBo nhanVienBo;
 
-        public QuanLyNhanVien()
+        public form_QuanLyNhanVien()
         {
             InitializeComponent();
             nhanVienBo = new NhanVienBo();

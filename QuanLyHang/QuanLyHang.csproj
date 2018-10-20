@@ -85,17 +85,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bo\KhachHangBo.cs" />
     <Compile Include="Bo\LoaiBo.cs" />
     <Compile Include="Bo\NhanVienBo.cs" />
     <Compile Include="Bo\SachBo.cs" />
+    <Compile Include="Bo\TaiKhoanBo.cs" />
     <Compile Include="Model\Dao\ConnectSqlServer.cs" />
     <Compile Include="Model\Dao\ConnectOleDB.cs" />
+    <Compile Include="Model\Dao\KhachHangDao.cs" />
     <Compile Include="Model\Dao\LoaiDao.cs" />
     <Compile Include="Model\Dao\NhanVienDao.cs" />
     <Compile Include="Model\Dao\SachDao.cs" />
+    <Compile Include="Model\Dao\TaiKhoanDao.cs" />
+    <Compile Include="Model\KhachHangBean.cs" />
     <Compile Include="Model\LoaiBean.cs" />
     <Compile Include="Model\NhanVienBean.cs" />
     <Compile Include="Model\SachBean.cs" />
+    <Compile Include="Model\TaiKhoanBean.cs" />
+    <Compile Include="View\BanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BanHang.Designer.cs">
+      <DependentUpon>BanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\DangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,8 +158,17 @@
     <Compile Include="View\SSMSDemoKetNoiServer.Designer.cs">
       <DependentUpon>SSMSDemoKetNoiServer.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\TrangChinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TrangChinh.Designer.cs">
+      <DependentUpon>TrangChinh.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Report\BaoCao1.rdlc" />
     <EmbeddedResource Include="Report\BaoCaoLoaiSach.rdlc" />
+    <EmbeddedResource Include="View\BanHang.resx">
+      <DependentUpon>BanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -180,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\SSMSDemoKetNoiServer.resx">
       <DependentUpon>SSMSDemoKetNoiServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TrangChinh.resx">
+      <DependentUpon>TrangChinh.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />
