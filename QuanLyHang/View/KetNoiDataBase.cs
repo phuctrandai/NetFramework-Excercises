@@ -12,15 +12,24 @@ namespace QuanLyHang.View
             InitializeComponent();
         }
 
+        #region Const
         private const int MicrosoftSQLServer = 0;
         private const int MicrosoftExcel = MicrosoftSQLServer + 1;
 
         private const int WindowsAuthentication = 0;
         private const int SQLAuthentication = WindowsAuthentication + 1;
+        #endregion
 
+        #region Event
         private void KetNoiDataBase_Load(object sender, EventArgs e)
         {
             comboBox_Authentication.SelectedIndex = 0;
+        }
+
+        private void form_KetNoiDatabase_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ConnectSqlServer.GetInstance().Disconnect();
+            ConnectOleDB.getInstance().Disconnect();
         }
 
         private void button_Connect_Click(object sender, EventArgs e)
@@ -40,14 +49,58 @@ namespace QuanLyHang.View
             }
             if(isConnected)
             {
+                form_DangNhap formDangNhap = new form_DangNhap();
                 this.Hide();
-                new form_DangNhap().ShowDialog();
-                ConnectSqlServer.GetInstance().Disconnect();
-                ConnectOleDB.getInstance().Disconnect();
-                this.Show();
+                DialogResult dialogResult = formDangNhap.ShowDialog();
+                this.Close();
             }
         }
 
+        private void button_Exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void comboBox_DataSource_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox_DataSource.SelectedIndex == MicrosoftSQLServer)
+            {
+                panel_ConnectToExcel.Enabled = false;
+                panel_ConnectToSqlServer.Enabled = true;
+            }
+            else if (comboBox_DataSource.SelectedIndex == MicrosoftExcel)
+            {
+                panel_ConnectToExcel.Enabled = true;
+                panel_ConnectToSqlServer.Enabled = false;
+            }
+        }
+
+        private void comboBox_Authentication_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox_Authentication.SelectedIndex == SQLAuthentication)
+            {
+                panel_SQLServerAuthentication.Enabled = true;
+            }
+            else
+            {
+                panel_SQLServerAuthentication.Enabled = false;
+            }
+        }
+
+        private void comboBox_Databases_DropDown(object sender, EventArgs e)
+        {
+            GetDatabases();
+        }
+
+        private void button_BrowseFile_Click(object sender, EventArgs e)
+        {
+            openFileDialog_BrowseExcelFile.ShowDialog();
+            textBox_ExcelFile.Text = openFileDialog_BrowseExcelFile.FileName;
+        }
+
+        #endregion
+
+        #region Function
         private bool connectToSQLServer()
         {
             if (comboBox_Databases.SelectedIndex != -1)
@@ -90,42 +143,6 @@ namespace QuanLyHang.View
             }
         }
 
-        private void button_Exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void comboBox_DataSource_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox_DataSource.SelectedIndex == MicrosoftSQLServer)
-            {
-                panel_ConnectToExcel.Enabled = false;
-                panel_ConnectToSqlServer.Enabled = true;
-            }
-            else if (comboBox_DataSource.SelectedIndex == MicrosoftExcel)
-            {
-                panel_ConnectToExcel.Enabled = true;
-                panel_ConnectToSqlServer.Enabled = false;
-            }
-        }
-
-        private void comboBox_Authentication_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBox_Authentication.SelectedIndex == SQLAuthentication)
-            {
-                panel_SQLServerAuthentication.Enabled = true;
-            }
-            else
-            {
-                panel_SQLServerAuthentication.Enabled = false;
-            }
-        }
-
-        private void comboBox_Databases_DropDown(object sender, EventArgs e)
-        {
-            GetDatabases();
-        }
-
         private void GetDatabases()
         {
             try
@@ -149,10 +166,6 @@ namespace QuanLyHang.View
             }
         }
 
-        private void button_BrowseFile_Click(object sender, EventArgs e)
-        {
-            openFileDialog_BrowseExcelFile.ShowDialog();
-            textBox_ExcelFile.Text = openFileDialog_BrowseExcelFile.FileName;
-        }
+        #endregion
     }
 }

@@ -22,6 +22,8 @@
         public string NgayNhap { get => ngayNhap; set => ngayNhap = value; }
         public string TacGia { get => tacGia; set => tacGia = value; }
 
+        public SachBean() { }
+
         public SachBean(string maSach, string tenSach, long soLuong, long gia, string maLoai, string soTap, string hinhAnh, string ngayNhap, string tacGia)
         {
             MaSach = maSach;

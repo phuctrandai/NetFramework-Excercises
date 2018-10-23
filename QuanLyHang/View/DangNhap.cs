@@ -29,9 +29,12 @@ namespace QuanLyHang
 
             if (DangNhap(tenDangNhap, matKhau))
             {
+                form_TrangChinh formTrangChinh = new form_TrangChinh();
                 this.Hide();
-                new form_TrangChinh().ShowDialog();
-                this.Show();
+
+                DialogResult dialogResult = formTrangChinh.ShowDialog();
+                if(dialogResult == DialogResult.No) // Dang xuat
+                    this.Show();
             }
             else
             {

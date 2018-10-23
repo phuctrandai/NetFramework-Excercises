@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -85,18 +85,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bo\HoaDonBo.cs" />
     <Compile Include="Bo\KhachHangBo.cs" />
     <Compile Include="Bo\LoaiBo.cs" />
     <Compile Include="Bo\NhanVienBo.cs" />
     <Compile Include="Bo\SachBo.cs" />
     <Compile Include="Bo\TaiKhoanBo.cs" />
+    <Compile Include="Model\MatHangBean.cs" />
     <Compile Include="Model\Dao\ConnectSqlServer.cs" />
     <Compile Include="Model\Dao\ConnectOleDB.cs" />
+    <Compile Include="Model\Dao\HoaDonDao.cs" />
     <Compile Include="Model\Dao\KhachHangDao.cs" />
     <Compile Include="Model\Dao\LoaiDao.cs" />
     <Compile Include="Model\Dao\NhanVienDao.cs" />
     <Compile Include="Model\Dao\SachDao.cs" />
     <Compile Include="Model\Dao\TaiKhoanDao.cs" />
+    <Compile Include="Model\HoaDonBean.cs" />
     <Compile Include="Model\KhachHangBean.cs" />
     <Compile Include="Model\LoaiBean.cs" />
     <Compile Include="Model\NhanVienBean.cs" />
@@ -180,6 +184,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\InBaoCao.resx">
       <DependentUpon>InBaoCao.cs</DependentUpon>

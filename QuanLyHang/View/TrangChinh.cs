@@ -35,11 +35,13 @@ namespace QuanLyHang.View
 
         private void button_DangXuat_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.No;
             this.Close();
         }
 
         private void button_Thoat_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             Application.Exit();
         }
 
